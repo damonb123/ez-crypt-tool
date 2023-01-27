@@ -31,34 +31,36 @@ pip install ez-crypt-tool
 ### USE
 
 ```sh
-ez_crypt_tool -h
-
-This application generates a Fernet key that needs to be retained and stored in KEY_FILES.
-IMPORTANT: Do not loose this key, any encrypted items will be lost and unable to be decrypted!
-
-USE:
-ez_crypt_tool --genkey | --genkeyfile | --genkeyfile <path/file.key> | --keyfile <path/file.key> | --encrypt <password> | --decrypt <encrypted_pwd>
-
---genkey: Generates a key, that can be used for encryption and decryption.
---genkeyfile: With no parameter will generate a key and put it in the DEFAULT_KEY_FILE: ~/ezcrypt/.ezcrypt.key.
-    Pass a key file path and name to
-    NOTE: Will NOT overrite the key file if it exist.
-
---keyfile: To supply a custome key file.
---encrypt: Uses the key in the KEY_FILES to encrypt a clear text string.
---decrypt: Uses the key in the KEY_FILES to decrypt a cipher string.
-    NOTE: Use 'fenc:' in front of encrypted key, to indicate an encrypted value. If present, 'fenc:' is removed, then decrypted.
-
-KEY_FILES: ['.ezcrypt.key', './conf/.ezcrypt.key', '~/ezcrypt/.ezcrypt.key']
-ENV: Environment can be used, skipping key file.  Example: export EZCRYPT_KEY=<key>
+ez_crypt_tool
 ```
 
-### Step 1:  Generate Key
+| Option | Description |
+| ------| -----------|
+| --genkey   | Generates a key, that can be used for encryption and decryption. |
+| --genkeyfile | Will generate a key and put it in the DEFAULT_KEY_FILE: ~/.ezcrypt/.ezcrypt.key.
+| --keyfile:    | Is supplied, will be used for Fernet key. |
+| --encrypt: | Uses the key in the KEY_FILES to encrypt a clear text string.|
+| --decrypt | Uses the key in the KEY_FILES to decrypt a cipher string. |
 
-```sh
+
+
+KEY_FILES: ['.ezcrypt.key', './conf/.ezcrypt.key', '~/.ezcrypt/.ezcrypt.key']
+ENV: Environment can be used, skipping key file.  Example: export EZCRYPT_KEY=<key>
+
+### Step 1:  Generate Key or Key File
+
+```json
 ez_crypt_tool --genkey
 NQYiJixqOhkFWOESyttUvP4ChIcNehpTiyXMGA0eifA=
 ```
+
+or
+
+```sh
+ez_crypt_tool --genkeyfile
+NQYiJixqOhkFWOESyttUvP4ChIcNehpTiyXMGA0eifA=
+```
+
 
 ### Step 2:  Place key in file
 
@@ -79,17 +81,15 @@ See example under ./sandbox directory.
 
 ### Notes
 
-A prefix of "fenc:<key>" can be prepended to key, to denote encrypted string.  Not required.
-
-### NOTICE
-
-* This project uses an example example test key.</span>
+* A prefix of "fenc:<key>" can be prepended to key, to denote encrypted string.  Not required.
+* This project uses an example example test key.
 * The key file [.ezcrypt.key] is in the conf directory.
 * Its only for this example and can be used by others to decyrpt your informaiton.
-* !!! DO NOT REUSE THE INCLUDED KEY !!!
-* GENERATE A NEW KEY BEFORE USING EzCryptTool in your environment.
 
-## Prerequisites  (IMPORTANT)
+> !!! DO NOT REUSE THE INCLUDED KEY !!!
+> GENERATE A NEW KEY BEFORE USING EzCryptTool in your environment
+
+### Prerequisites  (IMPORTANT)
 
 * Python 3.8.x or greater
 
@@ -98,10 +98,37 @@ A prefix of "fenc:<key>" can be prepended to key, to denote encrypted string.  N
 
 ## Code Examples
 
+### EzCryptTool Python Code
+
 ___
 
 ```python
-    Example code here
+# Import EzCrypt
+from ez_crypt_tool.ez_crypt_tool import EzCryptTool
+
+# Initialize the EzCryptTool
+ezc = EzCryptTool.get_instance()
+
+# Starting with clear text string
+clear_text_pw = "MyCoolPassword"
+print(f"Clear Text: {clear_text_pw}")
+
+# Encrypting the string
+crypted_password = ezc.encrypt(clear_text_pw)
+print(f"Encrypted: {password}")
+
+# decrypting the string
+clear_text_pw = ezc.decrypt(crypted_password)
+print(f"Decrypted: {clear_text_pw}")
+
+```
+
+### Output
+
+```json
+Clear Text: MyCoolPassword
+Encrypted: fenc:gAAAAABjk4vdeenLsvEp_WXKCD_pw2a0oNaSI11l-5WLIdAJH4X579N8GOyYHefEPeR03yJymwoViqba9jBWucKHc4ffoev7Eyyn3O7wx3LmyUqRznut8Cw=
+Decrypted: MyCoolPassword
 ```
 
 ## Info and History
@@ -115,7 +142,7 @@ ___
 ### TODO
 
 * [X] Add generate encryption file
-* [X] Add code examples in readme
+* [ ] Add code examples in readme
 
 ### Author
 
