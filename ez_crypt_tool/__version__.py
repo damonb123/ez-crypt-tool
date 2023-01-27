@@ -2,7 +2,7 @@
 
 __author__              = 'damonb123'
 __package_name__        = 'ez_crypt_tool'
-__version__             = '1.0.4'
+__version__             = '1.0.6'
 __author_email__        = 'damonb123@outlook.com'
 __license__             = 'APACHE 2.0'
 __maintainer_email__    = 'damonb123@outlook.com'
