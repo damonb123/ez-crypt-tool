@@ -1,0 +1,24 @@
+{
+    "python.defaultInterpreterPath": "./.venv/bin/python3.10",
+    "makefile.extensionOutputFolder": "./.vscode",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./tests",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "python.linting.pylintPath": ".venv/bin/pylint",
+    "python.languageServer": "Jedi",
+    "python.linting.pylintArgs": [
+        "--init-hook",
+        "import sys; import sys; sys.path.append(os.path.abspath('.'))"
+    ],
+    "python.analysis.extraPaths": ["."],
+    "python.autoComplete.extraPaths": ["."]
+}
