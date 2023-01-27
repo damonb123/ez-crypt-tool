@@ -1,6 +1,4 @@
-<p align="center">
-    <a href="https://www.python.org/"><img src="https://forthebadge.com/images/badges/made-with-python.svg" /></a>
-</p>
+![Made with Python][7]
 
 [![license][5]][6]
 [![Python Supported Version][1]][2]
@@ -12,20 +10,27 @@
 [4]: https://pypi.org/project/pip/
 [5]: https://img.shields.io/badge/License-Apache_2.0-blue.svg
 [6]: http://www.apache.org/licenses/LICENSE-2.0
-
-
+[7]: https://forthebadge.com/images/badges/made-with-python.svg
+[8]: https://forthebadge.com/images/badges/powered-by-coffee.svg
+[9]: https://www.peets.com/products/big-bang
 
 # EZ Crypt Tool for Python
 
 Create and used encryption keys to encrypt any sensitive information used for your application.  Can be used by command line, in environment variables, within Python code as a module.  Simplies the process and makes it easy to kep sensative information safe.
 
+## Operations
+
+___
+
 ### Install
-```
+
+```sh
 pip install ez-crypt-tool
 ```
 
 ### USE
-```
+
+```sh
 ez_crypt_tool -h
 
 This application generates a Fernet key that needs to be retained and stored in KEY_FILES.
@@ -49,65 +54,76 @@ ENV: Environment can be used, skipping key file.  Example: export EZCRYPT_KEY=<k
 ```
 
 ### Step 1:  Generate Key
+
 ```sh
 ez_crypt_tool --genkey
 NQYiJixqOhkFWOESyttUvP4ChIcNehpTiyXMGA0eifA=
 ```
 
 ### Step 2:  Place key in file
+
 Place the key into the ezcrypt.key file, then put the file in one of the 3 locations listed above in KEY_FILES.
 
 ### Step 3: Use command to encrypt password
+
 ```sh
 ez_crypt_tool --encrypt mypassword
 Encrypted:gAAAAABi6DbHCEwLiKHIrolX_oUGA9k-3RjB08-5VW0-lg4FdvGgsiwe1HriMkhLfWRFnMJsbJRvmpULEHbu2Q_EQbFDWaPBxA==
 ```
+
 ### Step 4: Store encrypted password
+
 Place encrypted password in configuration file that can be retrieved by the application.
 
 See example under ./sandbox directory.
 
+### Notes
 
-### Notes:
 A prefix of "fenc:<key>" can be prepended to key, to denote encrypted string.  Not required.
 
+### NOTICE
 
-### <font color="RED" size="5">NOTICE</font>
 * This project uses an example example test key.</span>
 * The key file [.ezcrypt.key] is in the conf directory.
 * Its only for this example and can be used by others to decyrpt your informaiton.
-* <font color="RED">!!! DO NOT REUSE THE INCLUDED KEY !!!</font>
+* !!! DO NOT REUSE THE INCLUDED KEY !!!
 * GENERATE A NEW KEY BEFORE USING EzCryptTool in your environment.
 
-
 ## Prerequisites  (IMPORTANT)
-- Python 3.8.x or greater
-- PIP 20.x or greater
-- virtualenv 20.14.x or greater
 
-_________________
+* Python 3.8.x or greater
 
-## History
+* PIP 20.x or greater
+* virtualenv 20.14.x or greater
+
+## Code Examples
+
+___
+
+```python
+    Example code here
+```
+
+## Info and History
+
+___
+
+### History
 
 * Initial upload
 
+### TODO
 
-## TODO
-  - [ ] Add generate encryption file
+* [X] Add generate encryption file
+* [X] Add code examples in readme
 
-
-
-## Author
+### Author
 
 * [damonb123@outlook.com](https://github.com/damonb123)
 
-
-## License
+### License
 
 Copyright © 2023, [damonb123](https://github.com/damonb123).
 Released under the [APACHE-2.0](LICENSE).
 
-
-<p align="center">
-    <a href="https://www.peets.com/products/big-bang"><img src="https://forthebadge.com/images/badges/powered-by-coffee.svg" /></a>
-</p>
+[![Powers by Coffee][8]][9]
