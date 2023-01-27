@@ -125,7 +125,7 @@ print(f"Decrypted: {clear_text_pw}")
 
 ### Output
 
-```json
+```console
 Clear Text: MyCoolPassword
 Encrypted: fenc:gAAAAABjk4vdeenLsvEp_WXKCD_pw2a0oNaSI11l-5WLIdAJH4X579N8GOyYHefEPeR03yJymwoViqba9jBWucKHc4ffoev7Eyyn3O7wx3LmyUqRznut8Cw=
 Decrypted: MyCoolPassword
