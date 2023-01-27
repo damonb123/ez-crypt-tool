@@ -49,14 +49,14 @@ ENV: Environment can be used, skipping key file.  Example: export EZCRYPT_KEY=<k
 
 ### Step 1:  Generate Key or Key File
 
-```json
+```console
 ez_crypt_tool --genkey
 NQYiJixqOhkFWOESyttUvP4ChIcNehpTiyXMGA0eifA=
 ```
 
 or
 
-```sh
+```console
 ez_crypt_tool --genkeyfile
 NQYiJixqOhkFWOESyttUvP4ChIcNehpTiyXMGA0eifA=
 ```
@@ -68,7 +68,7 @@ Place the key into the ezcrypt.key file, then put the file in one of the 3 locat
 
 ### Step 3: Use command to encrypt password
 
-```sh
+```console
 ez_crypt_tool --encrypt mypassword
 Encrypted:gAAAAABi6DbHCEwLiKHIrolX_oUGA9k-3RjB08-5VW0-lg4FdvGgsiwe1HriMkhLfWRFnMJsbJRvmpULEHbu2Q_EQbFDWaPBxA==
 ```
